@@ -1,0 +1,33 @@
+name: Run Test Python Script
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip install requests
+
+    - name: Run Python script
+      run: python ./zscalertwo-json-to-txt.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "actions@github.com"
+        git config --global user.email "GitHub Actions"
+        git add 'zscaler-edl/zscalertwo_cidrs.txt'
+        git commit -m "Update CIDR ranges"
+        git push origin main
