@@ -9,6 +9,9 @@ ansible-galaxy collection install paloaltonetworks.panos
 ### Install pandevice dependencies (if not already installed) ###
 
 ```
+sudo apt install python3-pip
+```
+```
 pip install pan-os-python
 ```
 
@@ -23,5 +26,5 @@ export PAN_PASSWORD=yourpassword
 ### Now run the playbook ###
 
 ```
-ansible-playbook -i inventory.yml get_fw_info.yml
+ansible-playbook -i inventory.yml get_ngfw_details.yml
 ```
