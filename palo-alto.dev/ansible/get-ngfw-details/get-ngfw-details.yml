@@ -1,6 +1,5 @@
----
 - name: Get PAN-OS system info
-  hosts: paloalto-fw
+  hosts: palo_firewalls
   connection: local
   gather_facts: no
 
@@ -17,9 +16,14 @@
         cmd: "show system info"
       register: result
 
-    - name: Display hostname and version
+    - name: Parse JSON output
+      set_fact:
+        system_info: "{{ result.stdout | from_json }}"
+
+    - name: Display selected details
       debug:
-        msg: 
-          - "Hostname: {{ result.stdout.system.hostname }}"
-          - "Version: {{ result.stdout.system['sw-version'] }}"
-          - "Uptime: {{ result.stdout.system.uptime }}"
+        msg:
+          - "Hostname: {{ system_info.response.result.system.hostname }}"
+          - "Model: {{ system_info.response.result.system.model }}"
+          - "Software Version: {{ system_info.response.result.system['sw-version'] }}"
+          - "Uptime: {{ system_info.response.result.system.uptime }}"
