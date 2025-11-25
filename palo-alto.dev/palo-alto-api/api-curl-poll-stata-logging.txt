@@ -1,0 +1,14 @@
+Example: Same Query Using curl
+
+ACCESS_TOKEN="your_access_token_here"
+BASE_URL="https://api.logging-service.paloaltonetworks.com"
+
+curl -X POST "$BASE_URL/logquery" \
+  -H "Authorization: Bearer $ACCESS_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "SELECT * FROM traffic LIMIT 10"}'
+
+After submitting the query, note the jobId in the response. Use that ID to retrieve the results:
+
+curl -X GET "$BASE_URL/logquery/<jobId>" \
+  -H "Authorization: Bearer $ACCESS_TOKEN"
