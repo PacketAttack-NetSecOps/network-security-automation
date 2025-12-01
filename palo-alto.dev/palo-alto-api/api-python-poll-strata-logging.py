@@ -1,3 +1,5 @@
+# This is not a working script. Strata Logging does not have an API. Keeping this for future reference.
+
 import requests
 import json
 import time
