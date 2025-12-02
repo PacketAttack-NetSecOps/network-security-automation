@@ -6,7 +6,7 @@
 ansible-galaxy collection install paloaltonetworks.panos
 ```
 
-### Install pandevice dependencies (if not already installed) ###
+### Install pan-os device dependencies (if not already installed) ###
 
 ```
 sudo apt install python3-pip
@@ -40,7 +40,7 @@ under
   register: result
 ```
 
-### Now run the playbook ###
+### Run the playbook ###
 
 ```
 ansible-playbook -i inventory.yml get-ngfw-details.yml

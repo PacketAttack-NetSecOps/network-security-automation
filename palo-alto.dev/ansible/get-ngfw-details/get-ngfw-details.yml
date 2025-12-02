@@ -1,3 +1,5 @@
+# A simple runbook that prints out the Hostname, Model, Software Version & Uptime of a PAN-OS firewall
+
 - name: Get PAN-OS system info
   hosts: palo_firewalls
   connection: local
