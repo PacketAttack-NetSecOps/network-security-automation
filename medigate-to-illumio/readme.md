@@ -1,4 +1,6 @@
-This script syncs medical devices from Medigate (a security platform) to Illumio (a network segmentation platform). Here's the flow:
+This script syncs medical devices from Medigate (a security platform) to Illumio (a network segmentation platform) to dynamically manage device IP lists. This allows for policies to be built on un-managed devices in Illumio (Without the VEN agent). Very useful for Medical/IoT devices.
+
+Here's the flow:
 
 ## **Configuration & Setup**
 - Loads API credentials and settings from environment variables (Medigate API token, Illumio PCE host/credentials, etc.)
